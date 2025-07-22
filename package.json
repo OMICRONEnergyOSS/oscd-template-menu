@@ -19,7 +19,7 @@
     "copy-demo": "cp -r ./demo ./dist/",
     "start": "npm run build && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
     "start:bundle": "npm run bundle && concurrently -k -r \"rollup -c rollup.config.js --watch\" \"wds --open dist/demo/index.html --watch --config ./web-dev-server.bundle.config.js\"",
-    "build": "rimraf dist && tsc && npm run analyze -- --exclude dist && npm run copy-demo",
+    "build": "rimraf dist  && npm run copy-demo && npm run analyze -- --exclude dist && tsc ",
     "bundle": "rimraf dist && rollup -c rollup.config.js",
     "test": "npm run build && wtr --coverage",
     "test:watch": "npm run build && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
