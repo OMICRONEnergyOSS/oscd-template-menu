@@ -4,21 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "oscd-menu-save.spec.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "oscd-menu-save",
-          "declaration": {
-            "name": "OscdMenuSave",
-            "module": "/oscd-menu-save.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "oscd-menu-save.ts",
       "declarations": [
         {
@@ -73,24 +58,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "coverage/lcov-report/block-navigation.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "coverage/lcov-report/prettify.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "coverage/lcov-report/sorter.js",
-      "declarations": [],
-      "exports": []
     }
   ]
 }
