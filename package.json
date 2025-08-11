@@ -1,8 +1,22 @@
 {
   "name": "@omicronenergy/oscd-menu-save",
-  "version": "0.0.5",
+  "version": "0.0.0",
   "description": "OpenSCD Menu Plugin for loading IEC 61850 SCL files into OpenSCD.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OMICRONEnergyOSS/oscd-menu-save.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OMICRONEnergyOSS/oscd-menu-save/issues"
+  },
+  "homepage": "https://openscd.org",
+  "keywords": [
+    "OpenSCD",
+    "iec81650"
+  ],
+  "author": "OMICRON Electronics GmbH",
+  "license": "Apache-2.0",
   "exports": {
     ".": "./dist/oscd-menu-save.js",
     "./oscd-menu-save.js": "./dist/oscd-menu-save.js"
@@ -25,20 +39,6 @@
     "test:watch": "npm run build && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "prepare": "husky"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OMICRONEnergyOSS/oscd-menu-save.git"
-  },
-  "bugs": {
-    "url": "https://github.com/OMICRONEnergyOSS/oscd-menu-save/issues"
-  },
-  "homepage": "https://openscd.org",
-  "keywords": [
-    "OpenSCD",
-    "iec81650"
-  ],
-  "author": "OMICRON Electronics GmbH",
-  "license": "Apache-2.0",
   "dependencies": {
     "@omicronenergy/oscd-api": "^0.1.1",
     "@omicronenergy/oscd-menu-open": "^0.0.6",
