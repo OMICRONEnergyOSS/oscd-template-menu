@@ -37,14 +37,15 @@
     "bundle": "rimraf dist && rollup -c rollup.config.js",
     "test": "npm run build && wtr --coverage",
     "test:watch": "npm run build && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
+    "deploy": "npm run bundle && gh-pages --dist 'dist'",
     "prepare": "husky"
   },
   "dependencies": {
     "@omicronenergy/oscd-api": "^0.1.1",
     "@omicronenergy/oscd-background-editv1": "^0.0.6",
     "@omicronenergy/oscd-menu-open": "^0.0.6",
+    "@omicronenergy/oscd-menu-save": "^0.0.1",
     "@omicronenergy/oscd-shell": "^0.0.8",
-    "@web/rollup-plugin-import-meta-assets": "^2.3.0",
     "tslib": "^2.8.1"
   },
   "devDependencies": {
@@ -62,6 +63,7 @@
     "@typescript-eslint/parser": "^8.36.0",
     "@web/dev-server": "^0.4.6",
     "@web/rollup-plugin-html": "^2.3.0",
+    "@web/rollup-plugin-import-meta-assets": "^2.3.0",
     "@web/test-runner": "0.20.2",
     "@web/test-runner-commands": "^0.9.0",
     "@web/test-runner-playwright": "^0.11.1",
@@ -75,6 +77,7 @@
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-tsdoc": "^0.4.0",
     "eslint-plugin-wc": "^3.0.1",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
@@ -93,7 +96,6 @@
   "lint-staged": {
     "*.ts": [
       "eslint --fix",
-      "prettier --write",
       "eslint"
     ]
   }
