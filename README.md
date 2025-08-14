@@ -1,6 +1,6 @@
-[![Tests](https://github.com/OMICRONEnergyOSS/oscd-menu-save/actions/workflows/test.yml/badge.svg)](https://github.com/OMICRONEnergyOSS/oscd-menu-save/actions/workflows/test.yml) ![NPM Version](https://img.shields.io/npm/v/@omicronenergy/oscd-menu-save)
+[![Tests](https://github.com/OMICRONEnergyOSS/oscd-template-menu/actions/workflows/test.yml/badge.svg)](https://github.com/OMICRONEnergyOSS/oscd-template-menu/actions/workflows/test.yml) ![NPM Version](https://img.shields.io/npm/v/@omicronenergy/oscd-template-menu)
 
-# \<oscd-menu-save>
+# \<oscd-template-menu>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
