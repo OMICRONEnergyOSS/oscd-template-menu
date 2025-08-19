@@ -1,12 +1,13 @@
 import OscdMenuOpen from '@omicronenergy/oscd-menu-open';
+import OscdMenuSave from '@omicronenergy/oscd-menu-save';
 import OscdBackgroundEditV1 from '@omicronenergy/oscd-background-editv1';
 
-import OscdMenuSave from '../oscd-template-menu.js';
-
 customElements.define('oscd-menu-open', OscdMenuOpen);
+customElements.define('oscd-menu-save', OscdMenuSave);
 customElements.define('oscd-background-editv1', OscdBackgroundEditV1);
 
-customElements.define('oscd-template-menu', OscdMenuSave);
+import OscdTemplateMenu from '../oscd-template-menu.js';
+customElements.define('oscd-template-menu', OscdTemplateMenu);
 
 export const plugins = {
   menu: [
@@ -20,6 +21,13 @@ export const plugins = {
       name: 'Save File',
       translations: { de: 'Datei speichern' },
       icon: 'save',
+      requireDoc: true,
+      tagName: 'oscd-template-menu',
+    },
+    {
+      name: 'Template Menu item',
+      translations: { de: 'Vorlagenmenüelement' },
+      icon: 'edit',
       requireDoc: true,
       tagName: 'oscd-template-menu',
     },
