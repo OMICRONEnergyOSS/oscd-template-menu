@@ -15,7 +15,9 @@
     "OpenSCD",
     "iec81650"
   ],
-  "author": "OMICRON Electronics GmbH",
+  "contributors": [
+    "OMICRON Electronics GmbH"
+  ],
   "license": "Apache-2.0",
   "exports": {
     ".": "./dist/oscd-template-menu.js",
