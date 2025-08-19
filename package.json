@@ -1,7 +1,7 @@
 {
   "name": "@omicronenergy/oscd-template-menu",
   "version": "0.0.0",
-  "description": "OpenSCD Menu Plugin for loading IEC 61850 SCL files into OpenSCD.",
+  "description": "OpenSCD Menu Plugin for working with IEC 61850 SCL files.",
   "type": "module",
   "repository": {
     "type": "git",
