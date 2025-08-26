@@ -1,12 +1,12 @@
 [![Tests](https://github.com/OMICRONEnergyOSS/oscd-template-menu/actions/workflows/test.yml/badge.svg)](https://github.com/OMICRONEnergyOSS/oscd-template-menu/actions/workflows/test.yml) ![NPM Version](https://img.shields.io/npm/v/@omicronenergy/oscd-template-menu)
 
-# \<oscd-template-menu>
+# !!Missing Description!!
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+## `<oscd-template-menu>`
 
 ## What is this?
 
-This is a basic menu plugin for [OpenSCD](https://openscd.org) which adds a menu item allowing users to safe files from the OpenSCD Editor. Start up a demo server with `npm run start` and see for yourself!
+This is an [OpenSCD](https://openscd.org) plugin. Start up a demo server with `npm run start` and see for yourself!
 
 ## Linting and formatting
 
