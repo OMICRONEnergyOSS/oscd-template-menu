@@ -222,10 +222,13 @@ const ScopedElementsMixinImplementation = superclass =>
 const ScopedElementsMixin = dedupeMixin(ScopedElementsMixinImplementation);
 
 class OscdTemplateMenu extends ScopedElementsMixin(i) {
-    async run() {
+    run() {
         // Implement the logic for the run method
         if (this.docName) {
-            console.log(`Running with document: ${this.docName}`);
+            alert(`Test Menu run. Loaed document: ${this.docName}`);
+        }
+        else {
+            alert('Test Menu run. No document loaded');
         }
     }
     render() {

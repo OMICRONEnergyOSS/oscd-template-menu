@@ -9,7 +9,7 @@ export default class OscdTemplateMenu extends OscdTemplateMenu_base {
     docName?: string;
     docVersion?: unknown;
     locale?: string;
-    run(): Promise<void>;
+    run(): void;
     render(): import("lit-html").TemplateResult<1>;
     static styles: import("lit").CSSResult;
 }
