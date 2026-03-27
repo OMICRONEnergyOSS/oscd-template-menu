@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ScopedElementsMixin } from '@open-wc/scoped-elements/lit-element.js';
-import { EditV2, Transactor } from '@omicronenergy/oscd-api';
+import { msg } from '@lit/localize';
 
 export default class OscdTemplateMenu extends ScopedElementsMixin(LitElement) {
   static scopedElements = {
@@ -15,9 +15,6 @@ export default class OscdTemplateMenu extends ScopedElementsMixin(LitElement) {
      * Otherwise it will fail to render at all. You'll only get an empty tag, no web component.
      */
   };
-
-  @property({ type: Object })
-  editor!: Transactor<EditV2>;
 
   @property({ type: Object })
   docs!: Record<string, XMLDocument>;
@@ -37,9 +34,9 @@ export default class OscdTemplateMenu extends ScopedElementsMixin(LitElement) {
   run() {
     // Implement the logic for the run method
     if (this.docName) {
-      alert(`Test Menu run. Loaed document: ${this.docName}`);
+      alert(msg(`Test Menu run. Loaed document: ${this.docName}`));
     } else {
-      alert('Test Menu run. No document loaded');
+      alert(msg('Test Menu run. No document loaded'));
     }
   }
 

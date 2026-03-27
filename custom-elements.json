@@ -37,14 +37,6 @@
             },
             {
               "kind": "field",
-              "name": "editor",
-              "type": {
-                "text": "Transactor<EditV2>"
-              },
-              "attribute": "editor"
-            },
-            {
-              "kind": "field",
               "name": "docs",
               "type": {
                 "text": "Record<string, XMLDocument>"
@@ -88,13 +80,6 @@
             }
           ],
           "attributes": [
-            {
-              "name": "editor",
-              "type": {
-                "text": "Transactor<EditV2>"
-              },
-              "fieldName": "editor"
-            },
             {
               "name": "docs",
               "type": {
@@ -145,6 +130,31 @@
           "declaration": {
             "name": "OscdTemplateMenu",
             "module": "src/oscd-template-menu.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/foundation/nsdoc.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "initializeNsdoc",
+          "return": {
+            "type": {
+              "text": "Nsdoc"
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "initializeNsdoc",
+          "declaration": {
+            "name": "initializeNsdoc",
+            "module": "src/foundation/nsdoc.ts"
           }
         }
       ]
