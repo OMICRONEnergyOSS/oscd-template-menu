@@ -4,7 +4,22 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "oscd-template-menu.ts",
+      "path": "src/oscd-template-menu.spec.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "oscd-template-menu",
+          "declaration": {
+            "name": "OscdTemplateMenu",
+            "module": "/src/oscd-template-menu.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/oscd-template-menu.ts",
       "declarations": [
         {
           "kind": "class",
@@ -119,6 +134,7 @@
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "oscd-template-menu",
           "customElement": true
         }
       ],
@@ -128,7 +144,7 @@
           "name": "default",
           "declaration": {
             "name": "OscdTemplateMenu",
-            "module": "oscd-template-menu.ts"
+            "module": "src/oscd-template-menu.ts"
           }
         }
       ]

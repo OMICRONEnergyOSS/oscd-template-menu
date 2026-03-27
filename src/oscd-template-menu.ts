@@ -34,10 +34,12 @@ export default class OscdTemplateMenu extends ScopedElementsMixin(LitElement) {
   @property({ type: String })
   locale?: string;
 
-  async run() {
+  run() {
     // Implement the logic for the run method
     if (this.docName) {
-      console.log(`Running with document: ${this.docName}`);
+      alert(`Test Menu run. Loaed document: ${this.docName}`);
+    } else {
+      alert('Test Menu run. No document loaded');
     }
   }
 
