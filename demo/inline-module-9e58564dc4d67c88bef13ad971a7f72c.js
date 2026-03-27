@@ -347,12 +347,12 @@ const LOCALE_STATUS_EVENT = 'lit-localize-status';
  * Untagged template strings with expressions aren't supported by lit-localize
  * because they don't allow for values to be captured at runtime.
  */
-const isStrTagged = (val) => typeof val !== 'string' && 'strTag' in val;
+const isStrTagged$1 = (val) => typeof val !== 'string' && 'strTag' in val;
 /**
  * Render the result of a `str` tagged template to a string. Note we don't need
  * to do this for Lit templates, since Lit itself handles rendering.
  */
-const joinStringsAndValues = (strings, values, valueOrder) => {
+const joinStringsAndValues$1 = (strings, values, valueOrder) => {
     let concat = strings[0];
     for (let i = 1; i < strings.length; i++) {
         concat += values[valueOrder ? valueOrder[i - 1] : i - 1];
@@ -371,8 +371,8 @@ const joinStringsAndValues = (strings, values, valueOrder) => {
  * no awareness of translations. If the template is str-tagged, returns it in
  * string form.
  */
-const defaultMsg = ((template) => isStrTagged(template)
-    ? joinStringsAndValues(template.strings, template.values)
+const defaultMsg$1 = ((template) => isStrTagged$1(template)
+    ? joinStringsAndValues$1(template.strings, template.values)
     : template);
 
 /**
@@ -385,7 +385,7 @@ const defaultMsg = ((template) => isStrTagged(template)
  *     omitted, an id will be automatically generated from the template strings.
  *   - desc: Optional description
  */
-let msg = defaultMsg;
+let msg$1 = defaultMsg$1;
 let installed = false;
 /**
  * Internal only. Do not use this function.
@@ -399,7 +399,7 @@ function _installMsgImplementation(impl) {
     if (installed) {
         throw new Error('lit-localize can only be configured once');
     }
-    msg = impl;
+    msg$1 = impl;
     installed = true;
 }
 
@@ -490,7 +490,7 @@ const localized = () => (clazz, _context) => {
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-class Deferred {
+let Deferred$1 = class Deferred {
     constructor() {
         this.settled = false;
         this.promise = new Promise((resolve, reject) => {
@@ -506,7 +506,7 @@ class Deferred {
         this.settled = true;
         this._reject(error);
     }
-}
+};
 
 /**
  * @license
@@ -638,7 +638,7 @@ function runtimeMsg(templates, template, options) {
                 // variable scope would be wrong. The number tells us the index of the
                 // source value to substitute in its place, because expressions can be
                 // moved to a different position during translation.
-                return joinStringsAndValues(localized.strings, 
+                return joinStringsAndValues$1(localized.strings, 
                 // Cast `template` because its type wasn't automatically narrowed (but
                 // we know it must be the same type as `localized`).
                 template.values, localized.values);
@@ -661,7 +661,7 @@ function runtimeMsg(templates, template, options) {
             }
         }
     }
-    return defaultMsg(template);
+    return defaultMsg$1(template);
 }
 function generateId(template) {
     const strings = typeof template === 'string' ? template : template.strings;
@@ -690,10 +690,10 @@ let sourceLocale$1;
 let validLocales;
 let loadLocale;
 let templates;
-let loading = new Deferred();
+let loading$1 = new Deferred$1();
 // The loading promise must be initially resolved, because that's what we should
 // return if the user immediately calls setLocale(sourceLocale).
-loading.resolve();
+loading$1.resolve();
 let requestId = 0;
 /**
  * Set configuration parameters for lit-localize when in runtime mode. Returns
@@ -734,7 +734,7 @@ const getLocale$1 = () => {
  */
 const setLocale$1 = (newLocale) => {
     if (newLocale === (loadingLocale ?? activeLocale)) {
-        return loading.promise;
+        return loading$1.promise;
     }
     if (!validLocales || !loadLocale) {
         throw new Error('Internal error');
@@ -745,8 +745,8 @@ const setLocale$1 = (newLocale) => {
     requestId++;
     const thisRequestId = requestId;
     loadingLocale = newLocale;
-    if (loading.settled) {
-        loading = new Deferred();
+    if (loading$1.settled) {
+        loading$1 = new Deferred$1();
     }
     dispatchStatusEvent({ status: 'loading', loadingLocale: newLocale });
     const localePromise = newLocale === sourceLocale$1
@@ -761,7 +761,7 @@ const setLocale$1 = (newLocale) => {
             loadingLocale = undefined;
             templates = mod.templates;
             dispatchStatusEvent({ status: 'ready', readyLocale: newLocale });
-            loading.resolve();
+            loading$1.resolve();
         }
         // Else another locale was requested in the meantime. Don't resolve or
         // reject, because the newer load call is going to use the same promise.
@@ -774,10 +774,10 @@ const setLocale$1 = (newLocale) => {
                 errorLocale: newLocale,
                 errorMessage: err.toString(),
             });
-            loading.reject(err);
+            loading$1.reject(err);
         }
     });
-    return loading.promise;
+    return loading$1.promise;
 };
 
 /**
@@ -6058,7 +6058,7 @@ let PluginsMenu = class PluginsMenu extends ScopedElementsMixin$2(i$7) {
       <h1 class="app-title">${this.appTitle}</h1>
       <oscd-filled-icon-button
         id="menu-button"
-        aria-label="${msg('Menu')}"
+        aria-label="${msg$1('Menu')}"
         @click=${async () => {
             if (this.menu.open) {
                 this.menu.close();
@@ -7552,7 +7552,7 @@ let OscdShell = class OscdShell extends ScopedElementsMixin$2(i$7) {
 
         <div slot="alignEnd">
           <oscd-filled-icon-button
-            aria-label="${msg('Undo')}"
+            aria-label="${msg$1('Undo')}"
             ?disabled=${!this.canUndo}
             @click=${async () => {
             this.dispatchEvent(new CustomEvent('oscd-undo', {
@@ -7563,7 +7563,7 @@ let OscdShell = class OscdShell extends ScopedElementsMixin$2(i$7) {
             ><oscd-icon>undo</oscd-icon></oscd-filled-icon-button
           >
           <oscd-filled-icon-button
-            aria-label="${msg('Redo')}"
+            aria-label="${msg$1('Redo')}"
             ?disabled=${!this.canRedo}
             @click=${async () => {
             this.dispatchEvent(new CustomEvent('oscd-redo', {
@@ -8048,14 +8048,123 @@ const ScopedElementsMixinImplementation = superclass =>
 
 const ScopedElementsMixin = dedupeMixin(ScopedElementsMixinImplementation);
 
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+/**
+ * Tag that allows expressions to be used in localized non-HTML template
+ * strings.
+ *
+ * Example: msg(str`Hello ${this.user}!`);
+ *
+ * The Lit html tag can also be used for this purpose, but HTML will need to be
+ * escaped, and there is a small overhead for HTML parsing.
+ *
+ * Untagged template strings with expressions aren't supported by lit-localize
+ * because they don't allow for values to be captured at runtime.
+ */
+const isStrTagged = (val) => typeof val !== 'string' && 'strTag' in val;
+/**
+ * Render the result of a `str` tagged template to a string. Note we don't need
+ * to do this for Lit templates, since Lit itself handles rendering.
+ */
+const joinStringsAndValues = (strings, values, valueOrder) => {
+    let concat = strings[0];
+    for (let i = 1; i < strings.length; i++) {
+        concat += values[i - 1];
+        concat += strings[i];
+    }
+    return concat;
+};
+
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+/**
+ * Default identity msg implementation. Simply returns the input template with
+ * no awareness of translations. If the template is str-tagged, returns it in
+ * string form.
+ */
+const defaultMsg = ((template) => isStrTagged(template)
+    ? joinStringsAndValues(template.strings, template.values)
+    : template);
+
+/**
+ * Make a string or lit-html template localizable.
+ *
+ * @param template A string, a lit-html template, or a function that returns
+ * either a string or lit-html template.
+ * @param options Optional configuration object with the following properties:
+ *   - id: Optional project-wide unique identifier for this template. If
+ *     omitted, an id will be automatically generated from the template strings.
+ *   - desc: Optional description
+ */
+let msg = defaultMsg;
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+class Deferred {
+    constructor() {
+        this.settled = false;
+        this.promise = new Promise((resolve, reject) => {
+            this._resolve = resolve;
+            this._reject = reject;
+        });
+    }
+    resolve(value) {
+        this.settled = true;
+        this._resolve(value);
+    }
+    reject(error) {
+        this.settled = true;
+        this._reject(error);
+    }
+}
+
+/**
+ * @license
+ * Copyright 2014 Travis Webb
+ * SPDX-License-Identifier: MIT
+ */
+// This module is derived from the file:
+// https://github.com/tjwebb/fnv-plus/blob/1e2ce68a07cb7dd4c3c85364f3d8d96c95919474/index.js#L309
+//
+// Changes:
+// - Only the _hash64_1a_fast function is included.
+// - Removed loop unrolling.
+// - Converted to TypeScript ES module.
+// - var -> let/const
+//
+// TODO(aomarks) Upstream improvements to https://github.com/tjwebb/fnv-plus/.
+for (let i = 0; i < 256; i++) {
+    ((i >> 4) & 15).toString(16) + (i & 15).toString(16);
+}
+
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+let loading = new Deferred();
+// The loading promise must be initially resolved, because that's what we should
+// return if the user immediately calls setLocale(sourceLocale).
+loading.resolve();
+
 class OscdTemplateMenu extends ScopedElementsMixin(i) {
     run() {
         // Implement the logic for the run method
         if (this.docName) {
-            alert(`Test Menu run. Loaed document: ${this.docName}`);
+            alert(msg(`Test Menu run. Loaed document: ${this.docName}`));
         }
         else {
-            alert('Test Menu run. No document loaded');
+            alert(msg('Test Menu run. No document loaded'));
         }
     }
     render() {
@@ -8096,9 +8205,6 @@ OscdTemplateMenu.styles = i$3 `
       --md-something: var(--oscd-something);
     }
   `;
-__decorate([
-    n({ type: Object })
-], OscdTemplateMenu.prototype, "editor", void 0);
 __decorate([
     n({ type: Object })
 ], OscdTemplateMenu.prototype, "docs", void 0);
